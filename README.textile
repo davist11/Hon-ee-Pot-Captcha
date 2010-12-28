@@ -8,6 +8,6 @@ h2. Requirements & Installation
 
 Hon-ee Pot Captcha is built to run on EE 2.0. To install:
 
-* Copy honee into your /system/expressionengine/third_party/ directory.
+* Copy honeepot into your /system/expressionengine/third_party/ directory.
 * Go to Add-ons -> Extensions and "Enable extension."
 * You can customize the field name for the honey pot field and the message a user receives if the field is filled in by going to the extension settings.
