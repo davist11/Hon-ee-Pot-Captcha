@@ -16,10 +16,10 @@ h3. Freeform Forms
 
 Be sure to add a field in Freeform that matches the honey pot field name in the settings. Then in your form, add the honey pot field:
 
-<pre>&lt;li class="screen-reader">
-  &lt;label for="honeepot">Don't put anything here&lt;/label>
-  &lt;input type="text" name="honeepot" id="honeepot" />
-&lt;/li></pre>
+<pre><li class="screen-reader">
+  <label for="honeepot">Don't put anything here</label>
+  <input type="text" name="honeepot" id="honeepot" />
+</li></pre>
 
 In my CSS, I have a class to move things off of the page:
 
