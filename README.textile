@@ -11,3 +11,25 @@ Hon-ee Pot Captcha is built to run on EE 2.0. To install:
 * Copy honeepot into your /system/expressionengine/third_party/ directory.
 * Go to Add-ons -> Extensions and "Enable extension."
 * You can customize the field name for the honey pot field and the message a user receives if the field is filled in by going to the extension settings.
+
+h3. Freeform Forms
+
+Be sure to add a field in Freeform that matches the honey pot field name in the settings. Then in your form, add the honey pot field:
+
+<pre>&lt;li class="screen-reader">
+  &lt;label for="honeepot">Don't put anything here&lt;/label>
+  &lt;input type="text" name="honeepot" id="honeepot" />
+&lt;/li></pre>
+
+In my CSS, I have a class to move things off of the page:
+
+<pre>.screen-reader {
+  display: block !important;
+  left: -9999px !important;
+  position: absolute !important;
+  top: -9999px !important;
+}</pre>
+
+h3. Comment forms
+
+Follow the same steps as the Freeform forms, except you do not have to create the field in Freeform.
