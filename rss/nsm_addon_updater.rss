@@ -1,0 +1,20 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ee_addon="http://expressionengine-addons.com/nsm_addon_updater">
+  <channel>
+    <title>Hon-ee Pot Captcha Release Notes</title>
+    <link>https://github.com/davist11/Hon-ee-Pot-Captcha/raw/master/rss/nsm_addon_updater.rss</link>
+    <atom:link href="https://github.com/davist11/Hon-ee-Pot-Captcha/raw/master/rss/nsm_addon_updater.rss" rel="self" type="application/rss+xml" /> 
+    <description>Hon-ee Pot Captcha Release Notes</description>
+    <item>
+      <title>Hon-ee Pot Captcha 0.1</title>
+      <!-- Additional tag required for NSM Addon Updater -->
+      <ee_addon:version>0.1</ee_addon:version>
+      <link>https://github.com/davist11/Hon-ee-Pot-Captcha</link>
+      <pubDate>Tue, 28 Dec 2010 02:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <ul>
+          <li>Initial release</li>
+        </ul>
+      ]]></description>
+    </item>
+  </channel>
+</rss>
