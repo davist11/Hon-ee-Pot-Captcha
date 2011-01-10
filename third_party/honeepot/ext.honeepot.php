@@ -12,7 +12,7 @@
 class Honeepot_ext {
 
   var $name             = 'Hon-ee Pot Captcha';
-  var $version          = '0.1';
+  var $version          = '0.2';
   var $description      = 'Adds honey pot captcha functionality to the Freeform addon. You will not be able to submit the form with the captcha field filled in.';
   var $settings_exist   = 'y';
   var $docs_url         = 'https://github.com/davist11/Hon-ee-Pot-Captcha';
@@ -57,8 +57,8 @@ class Honeepot_ext {
     if($honeepot_field !== '')
     {
       $errors[] = $this->settings['honeepot_error'];
-      return $errors;
     }
+    return $errors;
   }
   
   /**
