@@ -2,7 +2,7 @@ h1. Hon-ee Pot Captcha
 
 I wanted to try to use the honey pot captcha technique to combat spam on my site. This technique includes a field on each form, hides it off the page with CSS and then validates on the back end to make sure it's not filled in.
 
-This addon validates Freeform forms and the EE comment form.
+This addon validates Freeform forms, Safecraker forms, and the EE comment form.
 
 h2. Requirements & Installation
 
