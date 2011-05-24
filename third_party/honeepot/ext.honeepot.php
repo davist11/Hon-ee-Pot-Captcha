@@ -12,8 +12,8 @@
 class Honeepot_ext {
 
   var $name             = 'Hon-ee Pot Captcha';
-  var $version          = '0.2';
-  var $description      = 'Adds honey pot captcha functionality to the Freeform addon. You will not be able to submit the form with the captcha field filled in.';
+  var $version          = '0.3';
+  var $description      = 'Adds honey pot captcha functionality to the Freeform addon, comments, and Safecraker addon. You will not be able to submit the form with the captcha field filled in.';
   var $settings_exist   = 'y';
   var $docs_url         = 'https://github.com/davist11/Hon-ee-Pot-Captcha';
 	var $settings         = array();
@@ -77,6 +77,22 @@ class Honeepot_ext {
     }
   }
   
+  /**
+   * Safecracker form Validation
+   *
+   * If the hon-ee pot field is filled in on a safecracker form, this will return an error
+   *
+   * @return void
+   */
+  function validate_safecracker($safecracker)
+  {
+    $honeepot_field = $this->EE->input->post($this->settings['honeepot_field']);
+    if($honeepot_field !== '')
+    {
+      $safecracker->errors[] = $this->settings['honeepot_error'];
+    }
+    return $safecracker;
+  }
   
   /**
    * Activate Extension
@@ -107,6 +123,19 @@ class Honeepot_ext {
       'class'       => __CLASS__,
       'hook'        => 'insert_comment_start',
       'method'      => 'validate_comment',
+      'settings'    => serialize($this->settings()),
+      'priority'    => 10,
+      'version'     => $this->version,
+      'enabled'     => 'y'
+    );
+
+    // insert in database
+    $this->EE->db->insert('extensions', $data);
+    
+    $data = array(
+      'class'       => __CLASS__,
+      'hook'        => 'safecracker_submit_entry_end',
+      'method'      => 'validate_safecracker',
       'settings'    => serialize($this->settings()),
       'priority'    => 10,
       'version'     => $this->version,
