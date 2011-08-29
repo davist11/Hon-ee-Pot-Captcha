@@ -14,7 +14,7 @@ Hon-ee Pot Captcha is built to run on EE 2.0. To install:
 
 h3. Freeform Forms
 
-Be sure to add a field in Freeform that matches the honey pot field name in the settings. Then in your form, add the honey pot field:
+In your form, add the honey pot field. Make sure the name of the form field matches the name in the Hon-ee Pot Captcha settings.
 
 <pre><li class="screen-reader">
   <label for="honeepot">Don't put anything here</label>
