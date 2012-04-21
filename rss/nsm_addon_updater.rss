@@ -5,14 +5,14 @@
     <atom:link href="https://github.com/davist11/Hon-ee-Pot-Captcha/raw/master/rss/nsm_addon_updater.rss" rel="self" type="application/rss+xml" /> 
     <description>Hon-ee Pot Captcha Release Notes</description>
     <item>
-      <title>Hon-ee Pot Captcha 0.3</title>
+      <title>Hon-ee Pot Captcha 0.4</title>
       <!-- Additional tag required for NSM Addon Updater -->
-      <ee_addon:version>0.3</ee_addon:version>
+      <ee_addon:version>0.4</ee_addon:version>
       <link>https://github.com/davist11/Hon-ee-Pot-Captcha</link>
-      <pubDate>Mon, 23 May 2010 23:23:00 +0000</pubDate>
+      <pubDate>Fri, 20 April 2012 21:00:00 +0000</pubDate>
       <description><![CDATA[
         <ul>
-          <li>Add validation for Safecraker</li>
+          <li>Allow for forms to not use Hon-ee Pot Captcha</li>
         </ul>
       ]]></description>
     </item>
