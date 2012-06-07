@@ -33,3 +33,7 @@ In my CSS, I have a class to move things off of the page:
 h3. Comment forms
 
 Follow the same steps as the Freeform forms, except you do not have to create the field in Freeform.
+
+h3. Safecracker Forms
+
+Doesn't show errors when using inline validation, but still protects the entry from being submitted.

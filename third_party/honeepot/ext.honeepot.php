@@ -12,7 +12,7 @@
 class Honeepot_ext {
 
   var $name             = 'Hon-ee Pot Captcha';
-  var $version          = '0.4';
+  var $version          = '0.5';
   var $description      = 'Adds honey pot captcha functionality to the Freeform addon, comments, and Safecraker addon. You will not be able to submit the form with the captcha field filled in.';
   var $settings_exist   = 'y';
   var $docs_url         = 'https://github.com/davist11/Hon-ee-Pot-Captcha';
@@ -134,7 +134,7 @@ class Honeepot_ext {
     
     $data = array(
       'class'       => __CLASS__,
-      'hook'        => 'safecracker_submit_entry_end',
+      'hook'        => 'safecracker_submit_entry_start',
       'method'      => 'validate_safecracker',
       'settings'    => serialize($this->settings()),
       'priority'    => 10,
