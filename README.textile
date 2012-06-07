@@ -36,4 +36,4 @@ Follow the same steps as the Freeform forms, except you do not have to create th
 
 h3. Safecracker Forms
 
-Doesn't show errors when using inline validation, but still protects the entry from being submitted.
+Doesn't show error when using inline validation, but still protects the entry from being submitted.
