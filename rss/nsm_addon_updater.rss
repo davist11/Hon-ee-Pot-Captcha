@@ -5,14 +5,14 @@
     <atom:link href="https://github.com/davist11/Hon-ee-Pot-Captcha/raw/master/rss/nsm_addon_updater.rss" rel="self" type="application/rss+xml" /> 
     <description>Hon-ee Pot Captcha Release Notes</description>
     <item>
-      <title>Hon-ee Pot Captcha 0.5</title>
+      <title>Hon-ee Pot Captcha 0.6</title>
       <!-- Additional tag required for NSM Addon Updater -->
-      <ee_addon:version>0.4</ee_addon:version>
+      <ee_addon:version>0.6</ee_addon:version>
       <link>https://github.com/davist11/Hon-ee-Pot-Captcha</link>
-      <pubDate>Thu, 7 June 2012 16:00:00 +0000</pubDate>
+      <pubDate>Fri, 22 June 2012 10:30:00 +0000</pubDate>
       <description><![CDATA[
         <ul>
-          <li>Use the safecracker_submit_entry_start hook instead of safecracker_submit_entry_end.</li>
+          <li>Add support for Zoo Visitor</li>
         </ul>
       ]]></description>
     </item>
