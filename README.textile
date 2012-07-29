@@ -36,3 +36,10 @@ Follow the same steps as the Freeform forms, except you do not have to create th
 h3. Safecracker, Zoo Visitor Registration, & ProForm Forms
 
 Doesn't show error when using inline validation, but still protects the entry from being submitted.
+
+h3. Config overrides
+
+If you want to override the extension settings, you can with the following config overrides
+
+<pre>$config['honeepot_field'] = 'honeepot';
+$config['honeepot_error'] = 'Sorry, but we think you might be a robot.';</pre>
