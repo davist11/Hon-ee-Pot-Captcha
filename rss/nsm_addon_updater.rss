@@ -5,14 +5,14 @@
     <atom:link href="https://github.com/davist11/Hon-ee-Pot-Captcha/raw/master/rss/nsm_addon_updater.rss" rel="self" type="application/rss+xml" /> 
     <description>Hon-ee Pot Captcha Release Notes</description>
     <item>
-      <title>Hon-ee Pot Captcha 0.8</title>
+      <title>Hon-ee Pot Captcha 0.9</title>
       <!-- Additional tag required for NSM Addon Updater -->
-      <ee_addon:version>0.8</ee_addon:version>
+      <ee_addon:version>0.9</ee_addon:version>
       <link>https://github.com/davist11/Hon-ee-Pot-Captcha</link>
-      <pubDate>Sun, 29 July 2012 00:16:00 +0000</pubDate>
+      <pubDate>Sun, 29 July 2012 15:38:00 +0000</pubDate>
       <description><![CDATA[
         <ul>
-          <li>Add support for config overrides</li>
+          <li>Check that the settings are an array before trying to merge.</li>
         </ul>
       ]]></description>
     </item>
