@@ -12,7 +12,7 @@
 class Honeepot_ext {
 
 	var $name             = 'Hon-ee Pot Captcha';
-	var $version          = '0.9';
+	var $version          = '0.10';
 	var $description      = 'Adds honey pot captcha functionality to the Freeform addon, comments, Zoo Visitor Registration addon, ProForm addon, and Safecraker addon. You will not be able to submit the form with the captcha field filled in.';
 	var $settings_exist   = 'y';
 	var $docs_url         = 'https://github.com/davist11/Hon-ee-Pot-Captcha';
@@ -28,11 +28,10 @@ class Honeepot_ext {
 	{
 		$this->EE =& get_instance();
 		$this->settings = $settings;
-		
+
 		//Allow for config overrides
 		$this->apply_config_overrides();
 	}
-
 
 	/**
 	 * Settings
@@ -48,7 +47,6 @@ class Honeepot_ext {
 		return $settings;
 	}
 
-
 	/**
 	 * Config Overrides
 	 *
@@ -56,27 +54,15 @@ class Honeepot_ext {
 	 *
 	 * @return void
 	 */
-	function apply_config_overrides($prefix = NULL)
+	function apply_config_overrides()
 	{
 		// init
 		$config_items = array();
-
-		// get prefix
-		if ( $prefix === NULL && isset($this->package) ) {
-			$prefix = $this->package;
-		}
-
-		// add glue or bail
-		if ($prefix) {
-			$prefix = $prefix . '_';
-		} else {
-			return;
-		}
-
+		
 		// get keys
 		$keys = array_keys($this->EE->config->config);
-		$keys = array_filter($keys, function($v) use($prefix) {
-			return strpos($v, $prefix) === 0;
+		$keys = array_filter($keys, function($v) {
+			return strpos($v, 'honeepot_') === 0;
 		});
 
 		// get vals
@@ -86,13 +72,12 @@ class Honeepot_ext {
 
 		// filter empties
 		$config_items = array_filter($config_items);
-
+		
 		// merge in with config overwrites
 		if(is_array($this->settings)) {
 			$this->settings = array_merge($this->settings, $config_items);
 		}
 	}
-
 
 	/**
 	 * Freeform Validation
