@@ -12,7 +12,7 @@
 class Honeepot_ext {
 
 	var $name             = 'Hon-ee Pot Captcha';
-	var $version          = '0.10';
+	var $version          = '0.11';
 	var $description      = 'Adds honey pot captcha functionality to the Freeform addon, comments, Zoo Visitor Registration addon, ProForm addon, and Safecraker addon. You will not be able to submit the form with the captcha field filled in.';
 	var $settings_exist   = 'y';
 	var $docs_url         = 'https://github.com/davist11/Hon-ee-Pot-Captcha';
@@ -58,22 +58,15 @@ class Honeepot_ext {
 	{
 		// init
 		$config_items = array();
-		
-		// get keys
-		$keys = array_keys($this->EE->config->config);
-		$keys = array_filter($keys, function($v) {
-			return strpos($v, 'honeepot_') === 0;
-		});
 
-		// get vals
-		foreach ($keys as $key) {
-			$config_items[$key] = $this->EE->config->item($key);
+		if($this->EE->config->item('honeepot_field')) {
+			$config_items['honeepot_field'] = $this->EE->config->item('honeepot_field');
 		}
-
-		// filter empties
-		$config_items = array_filter($config_items);
 		
-		// merge in with config overwrites
+		if($this->EE->config->item('honeepot_error')) {
+			$config_items['honeepot_error'] = $this->EE->config->item('honeepot_error');
+		}
+		
 		if(is_array($this->settings)) {
 			$this->settings = array_merge($this->settings, $config_items);
 		}
