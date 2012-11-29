@@ -12,10 +12,6 @@ Hon-ee Pot Captcha is built to run on EE 2.0. To install:
 * Go to Add-ons -> Extensions and "Enable extension."
 * You can customize the field name for the honey pot field and the message a user receives if the field is filled in by going to the extension settings.
 
-h3. Freeform Forms
-
-In your form, add the honey pot field. Make sure the name of the form field matches the name in the Hon-ee Pot Captcha settings.
-
 <pre><li class="screen-reader">
   <label for="honeepot">Don't put anything here</label>
   <input type="text" name="honeepot" id="honeepot" />
@@ -28,6 +24,10 @@ In my CSS, I have a class to move things off of the page:
   left: -9999px !important;
   position: absolute !important;
 }</pre>
+
+h3. Freeform Forms
+
+In your form, add the honey pot field. Make sure the name of the form field matches the name in the Hon-ee Pot Captcha settings.
 
 h3. Comment forms
 
