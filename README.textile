@@ -2,7 +2,7 @@ h1. Hon-ee Pot Captcha
 
 I wanted to try to use the honey pot captcha technique to combat spam on my site. This technique includes a field on each form, hides it off the page with CSS and then validates on the back end to make sure it's not filled in.
 
-This addon validates Freeform, Safecracker, EE Member Registration, Zoo Visitor Registration, ProForm, and EE comment forms.
+This addon validates Freeform, Safecracker, EE Member Registration, EE Member login, Zoo Visitor Registration, ProForm, and EE comment forms.
 
 h2. Requirements & Installation
 
