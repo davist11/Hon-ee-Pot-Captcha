@@ -202,6 +202,23 @@ class Honeepot_ext {
 		}
 	}
 
+	/**
+	* Solspace User Register form Validation
+	*
+	* If the hon-ee pot field is filled in on a User register form, this will return an error
+	*
+	* @return void
+	*/
+	function validate_user_register($safecracker)
+	{
+		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+		if($honeepot_field !== '' && $honeepot_field !== FALSE)
+		{
+		  $errors[] = $this->settings['honeepot_error'];
+		}
+		return $errors;
+	}
+
 
 	/**
 	 * Activate Extension
@@ -303,6 +320,19 @@ class Honeepot_ext {
 			'enabled'     => 'y'
 		);
 		
+		// insert in database
+		$this->EE->db->insert('extensions', $data);
+
+		$data = array(
+			'class'       => __CLASS__,
+			'hook'        => 'user_register_error_checking',
+			'method'      => 'validate_user_register',
+			'settings'    => serialize($this->settings()),
+			'priority'    => 10,
+			'version'     => $this->version,
+			'enabled'     => 'y'
+		);
+
 		// insert in database
 		$this->EE->db->insert('extensions', $data);
 	}
