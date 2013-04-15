@@ -12,8 +12,8 @@
 class Honeepot_ext {
 
 	var $name             = 'Hon-ee Pot Captcha';
-	var $version          = '0.13';
-	var $description      = 'Adds honey pot captcha functionality to the Freeform addon, comments, register, login, Zoo Visitor Registration addon, ProForm addon, and Safecraker addon. You will not be able to submit the form with the captcha field filled in.';
+	var $version          = '0.14';
+	var $description      = 'Adds honey pot captcha functionality to the Freeform addon, comments, register, login, Zoo Visitor Registration addon, ProForm addon, Safecraker addon, and Solspace User addon. You will not be able to submit the form with the captcha field filled in.';
 	var $settings_exist   = 'y';
 	var $docs_url         = 'https://github.com/davist11/Hon-ee-Pot-Captcha';
 	var $settings         = array();
@@ -207,15 +207,16 @@ class Honeepot_ext {
 	*
 	* If the hon-ee pot field is filled in on a User register form, this will return an error
 	*
-	* @return void
+	* @return errors array
 	*/
-	function validate_user_register($safecracker)
+	function validate_user_register()
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
-		if($honeepot_field !== '' && $honeepot_field !== FALSE)
-		{
-		  $errors[] = $this->settings['honeepot_error'];
+
+		if($honeepot_field !== '' && $honeepot_field !== FALSE) {
+			$errors[] = $this->settings['honeepot_error'];
 		}
+
 		return $errors;
 	}
 

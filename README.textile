@@ -33,7 +33,7 @@ h3. Comment forms
 
 Follow the same steps as the Freeform forms, except you do not have to create the field in Freeform.
 
-h3. Safecracker, Zoo Visitor Registration, & ProForm Forms
+h3. Safecracker, Zoo Visitor Registration, Solspace User Registration, & ProForm Forms
 
 Doesn't show error when using inline validation, but still protects the entry from being submitted.
 
