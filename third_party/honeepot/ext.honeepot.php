@@ -19,7 +19,8 @@ class Honeepot_ext {
 	var $settings         = array();
 	var $settings_default = array(
 		'honeepot_field' => 'honeepot',
-		'honeepot_error' => 'Sorry, but we think you might be a robot.'
+		'honeepot_error' => 'Sorry, but we think you might be a robot.',
+        'honeepot_log_rejections' => 'n',
 	);
 	var $package		  = 'honeepot';
 	
@@ -44,6 +45,8 @@ class Honeepot_ext {
 	{
 		$settings['honeepot_field'] = $this->settings_default['honeepot_field'];
 		$settings['honeepot_error'] = $this->settings_default['honeepot_error'];
+        $settings['honeepot_log_rejections'] = array('r', array('y' => 'Yes', 'n' => 'No'), $this->settings_default['honeepot_log_rejections']);
+        // Creates a set of radio buttons, one for "Yes" (y), one for "No" (n) and a default of "Yes"
 		return $settings;
 	}
 
@@ -66,6 +69,10 @@ class Honeepot_ext {
 		if($this->EE->config->item('honeepot_error')) {
 			$config_items['honeepot_error'] = $this->EE->config->item('honeepot_error');
 		}
+        
+        if($this->EE->config->item('honeepot_log_rejections')) {
+            $config_items['honeepot_log_rejections'] = $this->EE->config->item('honeepot_log_rejections');
+        }
 		
 		if(is_array($this->settings)) {
 			$this->settings = array_merge($this->settings, $config_items);
@@ -82,6 +89,12 @@ class Honeepot_ext {
 	function validate($errors)
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+		if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected Freeform form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE)
 		{
@@ -95,7 +108,8 @@ class Honeepot_ext {
 	/**
 	 * Comment form Validation
 	 *
-	 * If the hon-ee pot field is filled in on a comment form, this will return an error
+	 * If the hon-ee pot field is filled in on a comment form, this will return an error,
+	 *  and optionally log details in developer log
 	 *
 	 * @return void
 	 */
@@ -105,7 +119,14 @@ class Honeepot_ext {
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE)
 		{
-			return $this->EE->output->show_user_error('submission', $this->settings['honeepot_error']);
+            
+			if ($this->settings['honeepot_log_rejections'] == 'y')
+            {
+				$this->EE->load->library('logger');
+				$this->EE->logger->developer("Honeepot rejected comment from: {$_SERVER['REMOTE_ADDR']}");
+			}
+
+			return $this->EE->output->show_user_error('submission', $this->settings['honeepot_error']);            
 		}
 	}
 
@@ -120,6 +141,12 @@ class Honeepot_ext {
 	function validate_safecracker($safecracker)
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+        if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected Safecracker form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE)
 		{
@@ -140,6 +167,12 @@ class Honeepot_ext {
 	function validate_zoo_visitor($errors)
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+        if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected Zoo Visitor form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE)
 		{
@@ -160,6 +193,12 @@ class Honeepot_ext {
 	function validate_proform($module, $form_obj, $form_session)
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+        if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected Proform form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE)
 		{
@@ -180,6 +219,12 @@ class Honeepot_ext {
 	function validate_member_register($member)
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+        if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected member registration form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE) {
 			$member->errors[] = $this->settings['honeepot_error'];
@@ -196,6 +241,12 @@ class Honeepot_ext {
 	function validate_member_login()
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+        if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected member login form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 		
 		if($honeepot_field !== '' && $honeepot_field !== FALSE) {
 			$this->EE->output->show_user_error('submission', $this->settings['honeepot_error']);
@@ -212,6 +263,12 @@ class Honeepot_ext {
 	function validate_user_register()
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
+        
+        if ($this->settings['honeepot_log_rejections'] == 'y')
+        {
+			$this->EE->load->library('logger');
+			$this->EE->logger->developer("Honeepot rejected user register form from: {$_SERVER['REMOTE_ADDR']}");
+		}
 
 		if($honeepot_field !== '' && $honeepot_field !== FALSE) {
 			$errors[] = $this->settings['honeepot_error'];
