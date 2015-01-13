@@ -230,7 +230,7 @@ class Honeepot_ext {
 	*
 	* @return errors array
 	*/
-	function validate_user_register()
+	function validate_user_register($user, $errors)
 	{
 		$honeepot_field = $this->EE->input->post($this->settings['honeepot_field'], TRUE);
 
